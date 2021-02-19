@@ -1,5 +1,5 @@
 # NATURAL LANGUAGE PROCESSING
-This repository made for storing my progress through Stanford's Speech and Language Processing,Udacity Nanodegree Course and some of my implementations. :computer:  
+This repository is made for storing my progress through Stanford's Speech and Language Processing,Udacity Nanodegree Course and some of my implementations. :computer:  
 ***
 
 # :busts_in_silhouette: Natural Language Processing nanodegree syllabus:  

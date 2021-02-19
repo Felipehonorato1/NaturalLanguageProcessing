@@ -9,7 +9,7 @@ This repository is made for storing my progress through Stanford's Speech and La
 - Explore machine learning methods in sentiment analysis. 
 - Build a speech tagging model.  
 
-## :computer :Computing with Natural Language:    
+## :computer: Computing with Natural Language:    
 - Learn advanced techniques like word embeddings, deep learning attention, and more. 
 - Build a machine translation model using recurrent neural network architectures.  
  

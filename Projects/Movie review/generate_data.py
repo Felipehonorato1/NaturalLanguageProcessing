@@ -19,8 +19,8 @@ from bs4 import BeautifulSoup
 
 
 class data_generator():
-    
-    def __init__(self): 
+    def __init__(self):
+        pass
     
 ################################################################################################
     def generate_data(self,subset):
@@ -34,8 +34,7 @@ class data_generator():
 
         pos_path = subset+'/pos'
         neg_path = subset+'/neg'
-
-
+   
         # Generating both positive and negative arrays with its respective labels
         for folder in os.listdir(subset):
 
@@ -73,27 +72,27 @@ class data_generator():
         return joint_reviews, joint_labels
 ################################################################################################
     
-    def preprocessing_data(reviews_array,remove_sw= None):
-    treated_array = []
-    sw = stopwords.words('english')
-    
-    for review in reviews_array:
-        
-        #Removing extra whitespaces, lowering all cases in string and removing punctuation and stopwords
-        review = review.lower()
-        review = BeautifulSoup(review).get_text()
-        review_no_punct = re.sub(r"[^\w\s]",'',review)
-        review_tokens = word_tokenize(review_no_punct)
-        
-        if remove_sw:
-            final_review = [word for word in review_tokens if word not in sw]
-        else:
-            final_review = review_tokens
-            
-        treated_array.append(" ".join(final_review).strip())
-    
-    assert len(reviews_array) == len(treated_array)
-    return treated_array
+    def preprocessing_data(self,reviews_array,remove_sw= None):
+        treated_array = []
+        sw = stopwords.words('english')
+
+        for review in reviews_array:
+
+            #Removing extra whitespaces, lowering all cases in string and removing punctuation and stopwords
+            review = review.lower()
+            review = BeautifulSoup(review, features="lxml").get_text()
+            review_no_punct = re.sub(r"[^\w\s]",'',review)
+            review_tokens = word_tokenize(review_no_punct)
+
+            if remove_sw:
+                final_review = [word for word in review_tokens if word not in sw]
+            else:
+                final_review = review_tokens
+
+            treated_array.append(" ".join(final_review).strip())
+
+        assert len(reviews_array) == len(treated_array)
+        return treated_array
 
 ################################################################################################
 
